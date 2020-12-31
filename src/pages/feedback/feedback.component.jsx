@@ -12,7 +12,7 @@ export default function Feedback({history, match}) {
     const onFinish = (values) => {
         values.website = website; 
         setLoading(true);
-        fetch(`${process.env.BACKEND}/feedback`, {
+        fetch(`${process.env.REACT_APP_BACKEND}/feedback`, {
             method: 'POST',
             body: values,
         })
