@@ -3,14 +3,16 @@ import { Input, Button, Form, Rate } from 'antd';
 import extractName from '../../utilities/website-name.js';
 import './feedback.styles.css'
 
-export default function Feedback(props) {
+export default function Feedback({history, match}) {
 
     const [loading, setLoading] = useState(false);
 
     const onFinish = (values) => {
         setLoading(true);
         console.log(values);
-        setTimeout(() => setLoading(false), 5000);
+
+        setTimeout(() => {setLoading(false)
+                          history.push('/feedback/completed')}, 5000);
     }
 
     const onFinishFailed = (err) => {
@@ -20,7 +22,7 @@ export default function Feedback(props) {
     return (
         <div>
             <br/>
-            <h2>{extractName(props.match.params.website)}</h2>
+            <h2>{extractName(match.params.website)}</h2>
             <br/>
 
             <Form layout="vertical" onFinish={onFinish} onFinishFailed={onFinishFailed} >
