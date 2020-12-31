@@ -14,8 +14,12 @@ export default function Feedback({history, match}) {
         setLoading(true);
         fetch(`${process.env.REACT_APP_BACKEND}/feedback`, {
             method: 'POST',
+            headers: {
+                "Content-Type":"application/json"
+            },
             body: values,
         })
+        .then((res) => res.json())
         .then((res) => {
             console.log(res);
             setLoading(false);
@@ -30,6 +34,7 @@ export default function Feedback({history, match}) {
 
     return (
         <div>
+        
             <br/>
             <h2>{website}</h2>
             <br/>
