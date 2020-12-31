@@ -1,5 +1,5 @@
 import React from 'react';
-import {withRouter} from "react-router-dom";
+import {withRouter, Link} from "react-router-dom";
 import extractName from '../../utilities/website-name.js'
 import './navbar.styles.css';
 
@@ -9,7 +9,7 @@ function Navbar(props) {
     return (
         <div className="navbar" >
             <div className="navbar-branding" >
-                <p className="navbar-title">Feedback</p>
+                <Link to='/' className="navbar-title">Feedback</Link>
                 <p className="navbar-subtitle">•&nbsp;{website}</p>
             </div>
         </div>
