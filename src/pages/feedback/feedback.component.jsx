@@ -5,13 +5,14 @@ import extractName from '../../utilities/website-name.js';
 import './feedback.styles.css'
 
 export default function Feedback({history, match}) {
-    
+
+    const website = extractName(match.params.website);
     const [loading, setLoading] = useState(false);
 
     const onFinish = (values) => {
+        values.website = website; 
         setLoading(true);
-        console.log(values);
-
+        //temp
         setTimeout(() => {setLoading(false)
                           history.push('/feedback/completed')}, 5000);
     }
@@ -23,7 +24,7 @@ export default function Feedback({history, match}) {
     return (
         <div>
             <br/>
-            <h2>{extractName(match.params.website)}</h2>
+            <h2>{website}</h2>
             <br/>
 
             <Form layout="vertical" onFinish={onFinish} onFinishFailed={onFinishFailed} >
@@ -109,3 +110,12 @@ export default function Feedback({history, match}) {
         </div>
     )
 }
+
+// email: "a@b.com"
+// find: "h"
+// good: "h"
+// improvement: "h"
+// name: "a"
+// other: "h"
+// rating: undefined
+// website: "Coronavirus Tracker Live"
