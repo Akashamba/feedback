@@ -38,6 +38,7 @@
 }
 
 body { 
+    background-color: #fa8f93;
     background-image: linear-gradient(45deg, #fa8f93 0%, #fdbfae 99%, #f7beae 100%);
     background-attachment: fixed;
 	-ms-overflow-style: none;
