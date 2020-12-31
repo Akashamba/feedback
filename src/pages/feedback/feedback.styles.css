@@ -1,4 +1,8 @@
-.rate-container {
-    align-items: left;
+.ant-rate {
+    padding: 1px 5px!important;
     background-color: #ff9a9e;
+}
+
+.ant-form-item-label > label {
+    font-size: 1rem;
 }

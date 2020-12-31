@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import { Input, Button, Form, Rate } from 'antd';
 import extractName from '../../utilities/website-name.js';
+
 import './feedback.styles.css'
 
 export default function Feedback({history, match}) {
-
+    
     const [loading, setLoading] = useState(false);
 
     const onFinish = (values) => {
@@ -70,10 +71,10 @@ export default function Feedback({history, match}) {
                     label="How would you rate the website on a scale of 5?"
                     name="rating"
                 >
-                    <div className="rate-container" ><Rate/></div>
+                    <Rate/>
                 </Form.Item>
 
-            <br/><br/>
+                <br/><br/>
 
                 <Form.Item
                     label="What did you like about the website?"
