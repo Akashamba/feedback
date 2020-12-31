@@ -12,9 +12,16 @@ export default function Feedback({history, match}) {
     const onFinish = (values) => {
         values.website = website; 
         setLoading(true);
-        //temp
-        setTimeout(() => {setLoading(false)
-                          history.push('/feedback/completed')}, 5000);
+        fetch(`${process.env.BACKEND}/feedback`, {
+            method: 'POST',
+            body: values,
+        })
+        .then((res) => {
+            console.log(res);
+            setLoading(false);
+            history.push('/feedback/completed')
+        })
+        .catch(err => console.log(err))
     }
 
     const onFinishFailed = (err) => {
@@ -110,12 +117,3 @@ export default function Feedback({history, match}) {
         </div>
     )
 }
-
-// email: "a@b.com"
-// find: "h"
-// good: "h"
-// improvement: "h"
-// name: "a"
-// other: "h"
-// rating: undefined
-// website: "Coronavirus Tracker Live"
