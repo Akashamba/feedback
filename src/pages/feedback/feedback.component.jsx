@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
+import axios from 'axios';
 import { Input, Button, Form, Rate } from 'antd';
 import extractName from '../../utilities/website-name.js';
-
 import './feedback.styles.css'
 
 export default function Feedback({history, match}) {
@@ -12,16 +12,10 @@ export default function Feedback({history, match}) {
     const onFinish = (values) => {
         values.website = website; 
         setLoading(true);
-        fetch(`${process.env.REACT_APP_BACKEND}/feedback`, {
-            method: 'POST',
-            headers: {
-                "Content-Type":"application/json"
-            },
-            body: values,
-        })
-        .then((res) => res.json())
-        .then((res) => {
-            console.log(res);
+        axios
+        .post(`${process.env.REACT_APP_BACKEND}/feedback`, values)
+        .then(res => {
+            console.log(res.data);
             setLoading(false);
             history.push('/feedback/completed')
         })
