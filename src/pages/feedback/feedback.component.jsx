@@ -35,7 +35,7 @@ export default function Feedback({history, match}) {
             <h2>{website}</h2>
             <br/>
 
-            <Form layout="vertical" onFinish={onFinish} onFinishFailed={onFinishFailed} >
+            <Form autoComplete={false} layout="vertical" onFinish={onFinish} onFinishFailed={onFinishFailed} >
 
                 <Form.Item
                     label="Name"
@@ -47,10 +47,10 @@ export default function Feedback({history, match}) {
                     },
                     ]}
                 >
-                    <Input size="large" placeholder="Name" />
+                    <Input autoComplete="off" size="large" placeholder="Name" />
                 </Form.Item>
 
-                <br/><br/>
+                <br/>
 
                 <Form.Item
                     label="Email"
@@ -59,13 +59,14 @@ export default function Feedback({history, match}) {
                     {
                         required: true,
                         message: 'Please enter your Email Address',
+                        type: "email"
                     },
                     ]}
                 >
-                    <Input size="large" type="email" placeholder="Email" />
+                    <Input autoComplete="off" size="large" placeholder="Email" />
                 </Form.Item>
 
-                <br/><br/>
+                <br/>
 
                 <Form.Item
                     label="How did you find this website?"
@@ -74,7 +75,7 @@ export default function Feedback({history, match}) {
                     <Input size="large" placeholder="How did you find this website?" />
                 </Form.Item>
 
-                <br/><br/>
+                <br/>
 
                 <Form.Item
                     label="How would you rate the website on a scale of 5?"
@@ -83,7 +84,7 @@ export default function Feedback({history, match}) {
                     <Rate/>
                 </Form.Item>
 
-                <br/><br/>
+                <br/>
 
                 <Form.Item
                     label="What did you like about the website?"
@@ -92,7 +93,7 @@ export default function Feedback({history, match}) {
                     <Input.TextArea size="large" placeholder="What did you like about the website?" />
                 </Form.Item>
 
-                <br/><br/>
+                <br/>
 
                 <Form.Item
                     label="What can be improved?"
@@ -101,16 +102,16 @@ export default function Feedback({history, match}) {
                     <Input.TextArea size="large" placeholder="What can be improved?" />
                 </Form.Item>
 
-                <br/><br/>
+                <br/>
 
                 <Form.Item
                     label="Anything else?"
                     name="other"
                 >
-                    <Input.TextArea size="large" placeholder="Anything else?" />
+                    <Input size="large" placeholder="Anything else?" />
                 </Form.Item>
 
-                <br/><br/>
+                <br/>
 
                 
                 <Button type="primary" loading={loading} htmlType="submit">Submit</Button>
