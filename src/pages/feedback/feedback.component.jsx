@@ -59,8 +59,11 @@ export default function Feedback({history, match}) {
                     {
                         required: true,
                         message: 'Please enter your Email Address',
-                        type: "email"
                     },
+                    {
+                        type: "email",
+                        message: 'Please enter a valid Email Address'
+                    }
                     ]}
                 >
                     <Input autoComplete="off" size="large" placeholder="Email" />
