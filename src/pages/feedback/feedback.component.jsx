@@ -8,6 +8,7 @@ export default function Feedback({history, match}) {
 
     const website = extractName(match.params.website);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
 
     const onFinish = (values) => {
         values.website = website; 
@@ -23,7 +24,8 @@ export default function Feedback({history, match}) {
     }
 
     const onFinishFailed = (err) => {
-        console.log(err)
+        setError(err.errorFields[0].errors[0])
+        // console.log(err.errorFields[0].errors[0])
     }
 
     return (
@@ -112,6 +114,7 @@ export default function Feedback({history, match}) {
 
                 
                 <Button type="primary" loading={loading} htmlType="submit">Submit</Button>
+                <span className="error">{error}</span>
             </Form>
         </div>
     )

@@ -1,8 +1,16 @@
 .ant-rate {
-    padding: 1px 5px!important;
+    padding: 1px 5px 5px!important;
     background-color: #ff9a9e;
 }
 
 .ant-form-item-label > label {
     font-size: 1rem;
+}
+
+.error {
+    font-size: 1rem;
+    padding: 10px;
+    display: block;
+    margin: 0 auto;
+    color: #ff0000;
 }
