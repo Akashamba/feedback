@@ -10,11 +10,13 @@ export default function Feedback({history, match}) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
-    const onFinish = (values) => {
-        values.website = website; 
+    const onFinish = (obj) => {
+        obj.website = website; 
+        obj.date = new Date();
+        console.log(obj)
         setLoading(true);
         axios
-        .post(`${process.env.REACT_APP_BACKEND}/feedback`, values)
+        .post(`${process.env.REACT_APP_BACKEND}/feedback`, obj)
         .then(res => {
             console.log(res.data);
             setLoading(false);
